@@ -1,5 +1,11 @@
+import BasicForm from './components/BasicForm';
+
 function App() {
-  return <div>Hello React , I am App.js</div>;
+  return (
+    <div>
+      <BasicForm />
+    </div>
+  );
 }
 
 export default App;
