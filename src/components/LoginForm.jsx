@@ -26,7 +26,9 @@ const LoginForm = () => {
         })}
       />
       {/* 錯誤訊息可使用短路求值的方式顯示  */}
-      {errors.password && errors.password.message} <input type='submit' />
+      {errors.password && errors.password.message}
+
+      <button type='submit'>Submit</button>
     </form>
   );
 };
