@@ -1,11 +1,35 @@
 {
   "posts": [
-    { "id": "1", "title": "a title", "views": 100 },
-    { "id": "2", "title": "another title", "views": 200 }
+    {
+      "id": "1",
+      "title": "a title",
+      "body": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, aliquam, repudiandae assumenda dicta natus amet doloribus ipsum harum nostrum, ullam nemo architecto iusto? Corporis nihil quisquam necessitatibus vel voluptates esse?",
+      "views": 100
+    },
+    {
+      "id": "060e1371-1b27-4df3-92a5-671a7d1a863c",
+      "title": "New Post",
+      "body": "This is a new post.",
+      "views": 0
+    },
+    {
+      "id": "9554e6f1-866a-483c-bf06-14fa389ad5f2",
+      "title": "a title",
+      "body": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, aliquam, repudiandae assumenda dicta natus amet doloribus ipsum harum nostrum, ullam nemo architecto iusto? Corporis nihil quisquam necessitatibus vel voluptates esse?",
+      "views": 0
+    }
   ],
   "comments": [
-    { "id": "1", "text": "a comment about post 1", "postId": "1" },
-    { "id": "2", "text": "another comment about post 1", "postId": "1" }
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
   ],
   "profile": {
     "name": "typicode"
