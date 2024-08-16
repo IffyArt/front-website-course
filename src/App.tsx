@@ -1,5 +1,12 @@
 import { useEffect, useState } from 'react';
-import { createPost, deletePost, getPosts, Post, updatePost } from './api/api';
+import {
+  createPost,
+  deletePost,
+  getPost,
+  getPosts,
+  updatePost,
+} from './api/posts';
+import { Post } from './models/post';
 
 const App = () => {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -14,6 +21,15 @@ const App = () => {
       setPosts(data);
     } catch (error) {
       console.error('Failed to fetch posts', error);
+    }
+  };
+
+  const fetchPost = async (id: string) => {
+    try {
+      const post = await getPost(id);
+      console.log(post);
+    } catch (error) {
+      console.error('Failed to fetch post', error);
     }
   };
 
@@ -67,6 +83,8 @@ const App = () => {
           <li key={post.id}>
             <h2>{post.title}</h2>
             <p>{post.body}</p>
+            <p>Views: {post.views}</p>
+            <button onClick={() => fetchPost(post.id)}>Fetch Detail</button>
             <button onClick={() => handleUpdatePost(post.id)}>Update</button>
             <button onClick={() => handleDeletePost(post.id)}>Delete</button>
           </li>
