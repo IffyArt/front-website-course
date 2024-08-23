@@ -1,28 +1,44 @@
 import { useEffect, useState } from 'react';
+import { ProdData } from './api/ruten';
 
 export default function Home() {
-  const [data, setData] = useState<null | { message: string }>(null);
+  const [prodList, setProdList] = useState<ProdData[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('/api/hello');
-      const data = await response.json();
+      const res = await fetch('/api/ruten');
+      const data: ProdData[] = await res.json();
 
-      setTimeout(() => {
-        setData(data);
-      }, 1000);
+      setProdList(data);
     };
 
     fetchData();
   }, []);
 
-  if (!data) {
-    return <h1>Loading...</h1>;
-  }
-
   return (
-    <div>
-      <h1>{data.message}</h1>
-    </div>
+    <>
+      <table border={1}>
+        <tbody>
+          {prodList.map((prod, index) => (
+            <tr key={index}>
+              <td>
+                {prod.ProdName.replace('[逛逛賣場]', '【貓腳印板橋】遊戲王')
+                  .replace('初期傷*微白邊', '')
+                  .replace('萬隆達*遊戲王 ', '【貓腳印板橋】遊戲王')
+                  .replace('『牌塔』', '【貓腳印板橋】')}
+              </td>
+              <td>{prod.PriceRange[0]}</td>
+              <td> </td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                {`https://gcs.rimg.com.tw${prod.Image.replace('_m', '')}`}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
   );
 }
