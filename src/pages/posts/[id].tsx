@@ -1,29 +1,41 @@
-import { useRouter } from 'next/router';
+import { postDate } from '@/fixtures/fakeData';
+import { Post } from '@/models/post';
+import { GetStaticPropsContext } from 'next';
+import Link from 'next/link';
 
-export default function Post() {
-  const router = useRouter();
-  const { id } = router.query;
+export default function BlogPost({ post }: { post: Post | null }) {
+  if (!post) {
+    return <div>Post not found</div>;
+  }
 
-  return <h1>Post ID: {id}</h1>;
+  return (
+    <div>
+      <h1>{post.title}</h1>
+      <p>{post.content}</p>
+      <Link href='/posts'>Back to posts</Link>
+    </div>
+  );
 }
 
-// import { postDate } from '@/fixtures/fakeData';
-// import Link from 'next/link';
-// import { useRouter } from 'next/router';
+// 使用 getStaticProps 在構建時獲取靜態內容
 
-// export default function Post() {
-//   const router = useRouter();
-//   const { id } = router.query;
-//   const currentData = postDate.find(
-//     (post) => String(post.id) === (router.query.id as string),
-//   );
+export async function getStaticProps({ params }: GetStaticPropsContext) {
+  const post = postDate.find((p) => String(p.id) === params?.id);
 
-//   return (
-//     <div>
-//       <h1>Post ID: {id}</h1>
-//       <h2>{currentData?.title}</h2>
-//       <p>{currentData?.content}</p>
-//       <Link href='/posts'>返回列表</Link>
-//     </div>
-//   );
-// }
+  return {
+    props: {
+      post: post || null,
+    },
+  };
+}
+
+export async function getStaticPaths() {
+  const paths = postDate.map((post) => ({
+    params: { id: String(post.id) }, // 確保 id 是字串
+  }));
+
+  return {
+    paths,
+    fallback: false, // 其他路徑返回404
+  };
+}

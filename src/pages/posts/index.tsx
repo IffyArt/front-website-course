@@ -1,18 +1,17 @@
 import { postDate } from '@/fixtures/fakeData';
 import Link from 'next/link';
 
-const PostsPage = () => {
+export default function PostsPage() {
   return (
     <div>
-      {postDate.map((post) => (
-        <div key={post.id}>
-          <h2>{post.title}</h2>
-          <p>{post.content}</p>
-          <Link href={`/posts/${post.id}`}>Read more</Link>
-        </div>
-      ))}
+      <h1>Blog Posts</h1>
+      <ul>
+        {postDate.map((post) => (
+          <li key={post.id}>
+            <Link href={`/posts/${post.id}`}>{post.title}</Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
-};
-
-export default PostsPage;
+}
