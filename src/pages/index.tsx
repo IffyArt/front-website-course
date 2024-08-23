@@ -1,20 +1,28 @@
-import Link from 'next/link';
-
-// export default function Home() {
-//   return (
-//     <div>
-//       <h1>Welcome to the Home Page</h1>
-//       <Link href='/about'>Go to About Page</Link>
-//     </div>
-//   );
-// }
+import { useEffect, useState } from 'react';
 
 export default function Home() {
-  const postId = 123;
+  const [data, setData] = useState<null | { message: string }>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('/api/hello');
+      const data = await response.json();
+
+      setTimeout(() => {
+        setData(data);
+      }, 1000);
+    };
+
+    fetchData();
+  }, []);
+
+  if (!data) {
+    return <h1>Loading...</h1>;
+  }
+
   return (
     <div>
-      <h1>Welcome to the Home Page</h1>
-      <Link href={`/posts/${postId}`}>Go to Post {postId}</Link>
+      <h1>{data.message}</h1>
     </div>
   );
 }
