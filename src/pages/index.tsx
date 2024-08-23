@@ -21,12 +21,7 @@ export default function Home() {
         <tbody>
           {prodList.map((prod, index) => (
             <tr key={index}>
-              <td>
-                {prod.ProdName.replace('[逛逛賣場]', '【貓腳印板橋】遊戲王')
-                  .replace('初期傷*微白邊', '')
-                  .replace('萬隆達*遊戲王 ', '【貓腳印板橋】遊戲王')
-                  .replace('『牌塔』', '【貓腳印板橋】')}
-              </td>
+              <td>{prod.ProdName}</td>
               <td>{prod.PriceRange[0]}</td>
               <td> </td>
               <td></td>
