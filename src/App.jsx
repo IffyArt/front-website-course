@@ -1,3 +1,4 @@
+// src/App.jsx
 import Count from './components/Count';
 
 function App() {

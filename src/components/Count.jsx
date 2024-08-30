@@ -1,3 +1,4 @@
+// src/components/Count.jsx
 import { useDispatch, useSelector } from 'react-redux';
 import { decrement, increment, setCount } from '../actions';
 

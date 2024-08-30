@@ -1,3 +1,4 @@
+// src/reducers/counter.js
 const initialState = { count: 0 };
 
 export default function counter(state = initialState, action) {
