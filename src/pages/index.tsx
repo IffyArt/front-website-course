@@ -1,6 +1,7 @@
 // src/pages/index.tsx
 
 import Counter from '@/components/Counter';
+import TodoList from '@/components/TodoList';
 import { Inter } from 'next/font/google';
 import Head from 'next/head';
 
@@ -17,6 +18,7 @@ export default function Home() {
       </Head>
       <h1>Welcome to Next.js with Redux</h1>
       <Counter />
+      <TodoList />
     </>
   );
 }

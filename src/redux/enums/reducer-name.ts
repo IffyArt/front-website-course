@@ -2,4 +2,5 @@
 
 export enum ReducerName {
   COUNTER = 'counter',
+  TODO_LIST = 'todoList',
 }
