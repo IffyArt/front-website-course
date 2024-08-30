@@ -7,7 +7,7 @@ export default function counter(state = initialState, action) {
     case 'DECREMENT':
       return { count: state.count - 1 };
     case 'SET_COUNT':
-      return { count: action.value };
+      return { count: action.payload };
     default:
       return state;
   }
