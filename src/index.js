@@ -1,32 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Navbar from './components/Nav';
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: (
-      <div>
-        <Navbar />
-        Home
-      </div>
-    ),
-  },
-  {
-    path: '/news',
-    element: (
-      <div>
-        <Navbar />
-        News
-      </div>
-    ),
-  },
-]);
+import { Provider } from 'react-redux';
+import App from './App';
+import store from './store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
 );
