@@ -7,7 +7,7 @@ export const decrement = () => ({
 });
 
 // 增加 value 参数 用於設定 count 的值
-export const setCount = (value) => ({
+export const setCount = (payload) => ({
   type: 'SET_COUNT',
-  payload: value,
+  payload,
 });
