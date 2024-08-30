@@ -1,11 +1,12 @@
-// src/components/Count.jsx
+// src/components/Count.tsx
 import { useDispatch, useSelector } from 'react-redux';
-import { decrement, increment, setCount } from '../actions';
+import { RootState } from 'src/reducers';
+import { decrement, increment, setCount } from '../actions/count';
 
 function Count() {
   const dispatch = useDispatch();
 
-  const count = useSelector((state) => state.counter.count);
+  const count = useSelector((state: RootState) => state.counter.count);
 
   return (
     <div>

@@ -1,4 +1,5 @@
-// src/App.jsx
+// src/App.tsx
+
 import Count from './components/Count';
 import TodoList from './components/TodoList';
 

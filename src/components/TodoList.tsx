@@ -1,20 +1,23 @@
-// src/components/TodoList.jsx
-import React, { useState } from 'react';
+// src/components/TodoList.tsx
+
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from 'src/reducers';
 import {
   addTodo,
   deleteTodo,
   modifyTodo,
   modifyTodoCompleted,
+  Todo,
 } from '../actions/todo-list';
 
 const TodoList = () => {
   const dispatch = useDispatch();
 
-  const { todoList } = useSelector((state) => state.todoList);
+  const { todoList } = useSelector((state: RootState) => state.todoList);
 
   const [currentTitle, setCurrentTitle] = useState('');
-  const [currentTodo, setCurrentTodo] = useState();
+  const [currentTodo, setCurrentTodo] = useState<Todo | null>(null);
 
   function addTodoAction() {
     if (!currentTitle.trim()) {
@@ -32,9 +35,11 @@ const TodoList = () => {
     setCurrentTitle('');
   }
 
-  function modifyTodoAction(todo) {
+  function modifyTodoAction() {
+    if (!currentTodo) return;
+
     dispatch(modifyTodo(currentTodo));
-    setCurrentTodo();
+    setCurrentTodo(null);
   }
 
   return (
@@ -65,8 +70,8 @@ const TodoList = () => {
       )}
 
       <ul>
-        {todoList.map((todo, index) => (
-          <li key={index}>
+        {todoList.map((todo) => (
+          <li key={todo.id}>
             <input
               type='checkbox'
               checked={todo.completed}

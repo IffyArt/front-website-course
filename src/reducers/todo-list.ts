@@ -1,5 +1,18 @@
-// src/reducers/todo-list.js
-const initialState = {
+// src/reducers/todo-list.ts
+
+import { Todo } from 'src/actions/todo-list';
+import { TodoActionTypes } from 'src/enum/todo-actions';
+
+interface TodoListState {
+  todoList: Todo[];
+}
+
+interface CounterAction {
+  type: TodoActionTypes;
+  payload?: any;
+}
+
+const initialState: TodoListState = {
   todoList: [
     {
       id: 1,
@@ -14,17 +27,17 @@ const initialState = {
   ],
 };
 
-export default function todoList(state = initialState, action) {
+export default function todoList(state = initialState, action: CounterAction) {
   switch (action.type) {
-    case 'ADD_TODO':
+    case TodoActionTypes.ADD_TODO:
       return { todoList: [...state.todoList, action.payload] };
-    case 'MODIFY_TODO':
+    case TodoActionTypes.MODIFY_TODO:
       return {
         todoList: state.todoList.map((todo) =>
           todo.id === action.payload.id ? action.payload : todo,
         ),
       };
-    case 'MODIFY_TODO_COMPLETED':
+    case TodoActionTypes.MODIFY_TODO_COMPLETED:
       return {
         todoList: state.todoList.map((todo) =>
           todo.id === action.payload
@@ -32,7 +45,7 @@ export default function todoList(state = initialState, action) {
             : todo,
         ),
       };
-    case 'DELETE_TODO':
+    case TodoActionTypes.DELETE_TODO:
       return {
         todoList: state.todoList.filter((todo) => todo.id !== action.payload),
       };
