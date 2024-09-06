@@ -1,3 +1,4 @@
+// components/Navbar/index.tsx
 import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 

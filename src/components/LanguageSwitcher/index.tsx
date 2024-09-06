@@ -1,4 +1,4 @@
-// components/LanguageSwitcher.js
+// components/LanguageSwitcher/index.tsx
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
