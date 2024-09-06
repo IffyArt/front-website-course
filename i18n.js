@@ -1,16 +1,9 @@
-/** @type {import('next-translate').I18nConfig} */
-const nextTranslateConfig = {
-  locales: ['zh', 'en', 'fr'],
-  defaultLocale: 'zh',
-  logBuild: false,
-  logger: ({ namespace, i18nKey }) =>
-    console.warn(`[next-translate]: ${namespace}:${i18nKey} is missing`),
-
+// i18n.js
+module.exports = {
+  locales: ['en', 'zh', 'fr'], // 支援的語言，例如英文、中文和法文
+  defaultLocale: 'zh', // 預設語言
   pages: {
-    '*': ['common', 'components/navbar'],
-    '/': ['home'],
-    '/about': ['about'],
+    '*': ['common'], // 所有頁面都會使用 common.json 進行翻譯
+    '/posts/[id]': ['posts'], // posts/[id].js 會使用 post
   },
 };
-
-module.exports = nextTranslateConfig;

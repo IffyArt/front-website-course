@@ -1,4 +1,4 @@
 {
-  "title": "Bonjour le monde",
-  "variable-example": "Utilisation d'une variable {{count}}"
+  "welcome": "Bienvenue sur notre site web !",
+  "hello": "Bonjour {{name}} !"
 }

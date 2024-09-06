@@ -1,4 +1,4 @@
 {
-  "title": "哈摟 世界",
-  "variable-example": "使用變數 {{count}}"
+  "welcome": "歡迎來到我們的網站！",
+  "hello": "你好 {{name}}！"
 }

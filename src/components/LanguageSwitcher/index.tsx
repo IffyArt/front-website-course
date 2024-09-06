@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 export default function LanguageSwitcher() {
-  const { locale, asPath } = useRouter();
+  const { locale, asPath } = useRouter(); // 獲取當前語言與當前路徑
 
   return (
     <div>

@@ -1,4 +1,4 @@
 {
-  "title": "Hello world",
-  "variable-example": "Using a variable {{count}}"
+  "welcome": "Welcome to our website!",
+  "hello": "Hello {{name}}!"
 }
