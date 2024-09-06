@@ -9,6 +9,7 @@ const nextTranslateConfig = {
   pages: {
     '*': ['common', 'components/navbar'],
     '/': ['home'],
+    '/about': ['about'],
   },
 };
 

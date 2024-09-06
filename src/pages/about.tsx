@@ -6,7 +6,7 @@ import { Inter } from 'next/font/google';
 import Head from 'next/head';
 const inter = Inter({ subsets: ['latin'] });
 
-export default function Home() {
+export default function about() {
   const { t } = useTranslation();
 
   return (
@@ -20,20 +20,8 @@ export default function Home() {
       <Navbar />
       <main className={`${styles.main} ${inter.className}`}>
         <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>
-              <span>{t('home:welcome')}</span>
-            </code>
-            <code>
-              <span>{t('home:description')}</span>
-            </code>
-          </p>
-          <p>
-            <code>
-              <span>{t('common:variable-example', { count: 3 })}</span>
-            </code>
-          </p>
+          <h1>{t('about:about.title')}</h1>
+          <p>{t('about:about.content')}</p>
         </div>
         <LanguageSwitcher />
       </main>
