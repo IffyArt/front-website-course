@@ -1,0 +1,32 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+/// 最新消息
+model News {
+  /// ID
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  /// 標題
+  title     String
+  /// 內容
+  content   String
+  /// 是否啟用
+  isActive  Boolean  @default(true)
+  /// 創建時間
+  date      DateTime @default(now())
+  /// 創建時間
+  createdAt DateTime @default(now())
+  /// 更新時間
+  updatedAt DateTime @updatedAt
+}
